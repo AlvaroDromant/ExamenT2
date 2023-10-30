@@ -26,7 +26,7 @@ function salir(){
 }
 
 function actualizarSaldo() {
-        saldoTemplate.innerText = `${saldo} €`
+     saldoTemplate.innerText = `${saldo}€`
 }
 
 function depositar() {
@@ -84,7 +84,7 @@ function transferir() {
     else{
       const cuenta = prompt("Introduce la cuenta destino:")
       saldo -= trans
-      alert(`La cantidad que ha transferido es: ${trans.toFixed(2)} €`)
+      alert(`La cantidad que ha transferido es: ${trans.toFixed(2)} € al numero de cuenta: ${cuenta}`)
       actualizarSaldo()
     }
 }

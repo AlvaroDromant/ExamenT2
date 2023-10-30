@@ -1,3 +1,6 @@
+// Autor: Alvaro Dromant Ligero (Estudiante)
+//GitHub: 
+
 window.addEventListener("load", iniciarSesion)
 
 let saldo = 1000
@@ -14,14 +17,16 @@ const saldoTemplate = get.getElementById("saldo")
 BotonDepositar.addEventListener = ("click", depositar)
 BotonRetirar.addEventListener = ("click", retirar)
 BotonTransferir.addEventListener = ("click", transferir)
-BotonCambiarContraseña.addEventListener = ("click", cambiarContrasena)
-BotonSalir.addEventListener = ("Click", () => {
-    alert("Ha salido del cajero. Hasta Luego")
-    window.location.replace()
-})
+BotonCambiarContrasena.addEventListener = ("click", cambiarContrasena)
+BotonSalir.addEventListener = ("click", salir)
 
-function actualizarSaldo (){
-    saldoTemplate.innerText = `${saldo}`
+function salir(){
+    alert("Ha salido del cajero. Hasta luego.")
+    window.location.replace("/templates/despedida.html")
+}
+
+function actualizarSaldo() {
+        saldoTemplate.innerText = `${saldo} €`
 }
 
 function depositar() {
@@ -64,7 +69,7 @@ function iniciarSesion(){
     }
     else {
         alert("Inicio de sesion fallido")
-        window.location.replace()
+        window.location.replace("/templates/pinIncorrecto.html")
     }
 
 
@@ -73,7 +78,7 @@ function iniciarSesion(){
 function transferir() {
     const trans = parseFloat(prompt("Ingrese la cantidad que quiera transferir"))
 
-    if(isNaN(trans) || trans <= saldo || trans > 0){
+    if(isNaN(trans) || trans <= 0 || trans > saldo){
         alert("La cantidad no es invalida. Intentelo de nuevo")
     }
     else{
@@ -84,3 +89,16 @@ function transferir() {
     }
 }
 
+
+function cambiarContrasena() {
+    const pin = prompt("Ingrese su pin actual")
+
+    if(pin !== PIN_CORRECTO){
+        alert("El PIN es incorrecto")
+    }
+    else{
+        const nuevoPin = prompt("Ingrese el nuevo pin")
+        PIN_CORRECTO = nuevoPin
+        alert("La contraseña se ha guardado correctamente")
+    }
+}

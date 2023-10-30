@@ -12,7 +12,7 @@ const BotonRetirar = document.getElementById("retirar")
 const BotonTransferir = document.getElementById("transferir")
 const BotonCambiarContraseña = document.getElementById("cambiarContrasena")
 const BotonSalir = document.getElementById("salir")
-const saldoTemplate = get.getElementById("saldo")
+const saldoTemplate = document.getElementById("saldo")
 
 BotonDepositar.addEventListener = ("click", depositar)
 BotonRetirar.addEventListener = ("click", retirar)
@@ -26,7 +26,7 @@ function salir(){
 }
 
 function actualizarSaldo() {
-     saldoTemplate.innerText = `${saldo}€`
+     saldoTemplate.innerText = `${saldo} €`
 }
 
 function depositar() {
@@ -98,7 +98,7 @@ function cambiarContrasena() {
     }
     else{
         const nuevoPin = prompt("Ingrese el nuevo pin")
-        PIN_CORRECTO = nuevoPin
         alert("La contraseña se ha guardado correctamente")
+        PIN_CORRECTO = nuevoPin
     }
 }

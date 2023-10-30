@@ -7,6 +7,7 @@ let saldo = 1000
 const PIN_CORRECTO = "1234"
 let intentosRestantes = 3
 
+//Declaramos las variables
 const BotonDepositar = document.getElementById("depositar")
 const BotonRetirar = document.getElementById("retirar")
 const BotonTransferir = document.getElementById("transferir")
@@ -20,15 +21,18 @@ BotonTransferir.addEventListener = ("click", transferir)
 BotonCambiarContrasena.addEventListener = ("click", cambiarContrasena)
 BotonSalir.addEventListener = ("click", salir)
 
+//Funcion para salir del programa llevandote a otra pagina
 function salir(){
     alert("Ha salido del cajero. Hasta luego.")
     window.location.replace("/templates/despedida.html")
 }
 
+
 function actualizarSaldo() {
      saldoTemplate.innerText = `${saldo} €`
 }
 
+// Funciones de nuestro cajero automatico
 function depositar() {
     const deposito = parseFloat(prompt("Ingrese el saldo que quiera depositar"))
     if(isNaN(deposito) || deposito <= 0 ){
